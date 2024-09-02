@@ -1,0 +1,30 @@
+**Requisitos Básicos**
+
+Gestão de Usuários:
+
+O sistema deve permitir o cadastro, atualização e exclusão de usuários.
+Deve haver distinção entre dois tipos de usuários: Comum e Administrador.
+
+Gestão de Médicos:
+
+Deve ser possível cadastrar, atualizar e excluir informações de médicos.
+Cada médico deve ter um perfil com informações como nome, especialidade médica e CRM.
+
+Gestão de Consultas:
+
+Deve ser possível agendar consultas entre usuários comuns (pacientes) e médicos.
+Cada consulta deve ser identificada por um ID único e incluir informações como data, hora, paciente, médico e descrição do motivo da consulta.
+
+Autenticação e Controle de Acesso:
+
+O sistema deve possuir um sistema de login seguro para todos os usuários.
+Deve haver controle de acesso baseado em papéis (por exemplo, administrador, médico, usuário comum) para garantir que apenas usuários autorizados tenham acesso às funcionalidades específicas.
+
+Segurança e Privacidade:
+
+Implementação de medidas de segurança para proteger informações sensíveis, como dados médicos dos pacientes.
+Conformidade com regulamentações de privacidade de dados aplicáveis ao setor de saúde.
+
+Integração com Plano de Saúde (opcional):
+
+Se necessário, o sistema deve permitir que usuários comuns indiquem se possuem plano de saúde.

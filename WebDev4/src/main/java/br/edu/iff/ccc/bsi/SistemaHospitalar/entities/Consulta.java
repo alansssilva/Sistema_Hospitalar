@@ -2,7 +2,6 @@ package br.edu.iff.ccc.bsi.SistemaHospitalar.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -14,13 +13,15 @@ public class Consulta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idConsulta;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "medico_id") // Relacionamento com a tabela de médicos
 	private Medico medico;
 
 	private LocalDateTime data;
 	private String descricao;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "paciente_id") // Relacionamento com a tabela de pacientes
 	private Comum paciente;
 
 	public int getIdConsulta() {

@@ -3,7 +3,7 @@
 Gestão de Usuários:
 
 O sistema deve permitir o cadastro, atualização e exclusão de usuários.
-Deve haver distinção entre dois tipos de usuários: Comum e Administrador.
+Deve haver distinção entre dois tipos de usuários: Comum, Médico e Administrador.
 
 Gestão de Médicos:
 

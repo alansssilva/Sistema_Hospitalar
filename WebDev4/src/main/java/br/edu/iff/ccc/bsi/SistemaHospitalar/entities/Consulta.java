@@ -3,64 +3,72 @@ package br.edu.iff.ccc.bsi.SistemaHospitalar.entities;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Consulta implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idConsulta;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idConsulta;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "medico_id") // Relacionamento com a tabela de médicos
-	private Medico medico;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "medico_id")
+    @NotNull
+    private Medico medico;
 
-	private LocalDateTime data;
-	private String descricao;
+    @NotNull
+    private LocalDateTime data;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "paciente_id") // Relacionamento com a tabela de pacientes
-	private Comum paciente;
+    @Size(max = 500)
+    private String descricao;
 
-	public int getIdConsulta() {
-		return idConsulta;
-	}
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "paciente_id")
+    @NotNull
+    private Comum paciente;
 
-	public void setIdConsulta(int idConsulta) {
-		this.idConsulta = idConsulta;
-	}
 
-	public Medico getMedico() {
-		return medico;
-	}
+    public int getIdConsulta() {
+        return idConsulta;
+    }
 
-	public void setMedico(Medico medico) {
-		this.medico = medico;
-	}
+    public void setIdConsulta(int idConsulta) {
+        this.idConsulta = idConsulta;
+    }
 
-	public LocalDateTime getData() {
-		return data;
-	}
+    public Medico getMedico() {
+        return medico;
+    }
 
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public LocalDateTime getData() {
+        return data;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
 
-	public Comum getPaciente() {
-		return paciente;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setPaciente(Comum paciente) {
-		this.paciente = paciente;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Comum getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Comum paciente) {
+        this.paciente = paciente;
+    }
 }

@@ -90,3 +90,4 @@ class ConsultaServiceTest {
         assertThat(resultado).contains(consulta1, consulta2);
     }
 }
+

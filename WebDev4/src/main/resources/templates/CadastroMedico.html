@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-br" th:fragment="content">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro de Médico</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			font-family: 'Roboto', sans-serif;
+			background: url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			width: 100%;
+			max-width: 400px;
+			background-color: rgba(255, 255, 255, 0.9);
+			border-radius: 15px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+			z-index: 2;
+		}
+
+		h1 {
+			color: #007bff;
+			text-align: center;
+			margin-bottom: 20px;
+			font-weight: 700;
+			font-size: 1.8em;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+			position: relative;
+			width: 100%;
+		}
+
+		.form-group input {
+			width: 100%;
+			padding: 12px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			background-color: #f1f1f1;
+			color: #333;
+			transition: 0.3s;
+		}
+
+		.form-group input:focus {
+			outline: none;
+			box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+		}
+
+		.form-group label {
+			position: absolute;
+			left: 15px;
+			top: 12px;
+			color: #aaa;
+			transition: 0.3s;
+			font-size: 16px;
+		}
+
+		.form-group input:focus+label,
+		.form-group input:not(:placeholder-shown)+label {
+			top: -10px;
+			left: 10px;
+			font-size: 12px;
+			color: #007bff;
+		}
+
+		.btn {
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 12px;
+			font-size: 16px;
+			margin: 10px 0;
+			width: 100%;
+			transition: background-color 0.3s, transform 0.3s;
+		}
+
+		.btn:hover {
+			background-color: #0056b3;
+			transform: translateY(-2px);
+		}
+
+		.btn-secondary {
+			background-color: #6c757d;
+		}
+
+		.btn-secondary:hover {
+			background-color: #5a6268;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Cadastro de Médico</h1>
+		<form th:action="@{/criarMedico}" method="post">
+			<div class="form-group">
+				<input type="text" id="txtNomeMedico" name="nome" placeholder=" " required />
+				<label for="txtNomeMedico">Nome</label>
+			</div>
+			<div class="form-group">
+				<input type="email" id="txtEmailMedico" name="email" placeholder=" " required />
+				<label for="txtEmailMedico">E-mail</label>
+			</div>
+			<div class="form-group">
+				<input type="password" id="txtSenhaMedico" name="senha" placeholder=" " required />
+				<label for="txtSenhaMedico">Senha</label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="txtCPFMedico" name="cpf" placeholder=" " required />
+				<label for="txtCPFMedico">CPF</label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="txtTelefoneMedico" name="telefone" placeholder=" " required />
+				<label for="txtTelefoneMedico">Telefone</label>
+			</div>
+			<div class="form-group">
+				<input type="date" id="txtDataNascimentoMedico" name="dataNascimento" required />
+				<label for="txtDataNascimentoMedico">Data de Nascimento</label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="txtEnderecoMedico" name="endereco" placeholder=" " required />
+				<label for="txtEnderecoMedico">Endereço</label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="txtEspecialidadeMedico" name="especialidade" placeholder=" " required />
+				<label for="txtEspecialidadeMedico">Especialidade</label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="txtCRM" name="crm" placeholder=" " required />
+				<label for="txtCRM">CRM</label>
+			</div>
+			<button type="submit" class="btn">Cadastrar</button>
+		</form>
+	</div>
+</body>
+
+</html>

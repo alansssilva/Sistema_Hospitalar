@@ -2,6 +2,10 @@ package br.edu.iff.ccc.bsi.SistemaHospitalar.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,10 +19,11 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idConsulta;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "medico_id")
     @NotNull
-    private Medico medico;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Medico medico;   
 
     @NotNull
     private LocalDateTime data;
@@ -26,9 +31,9 @@ public class Consulta implements Serializable {
     @Size(max = 500)
     private String descricao;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "paciente_id")
-    @NotNull
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Comum paciente;
 
 

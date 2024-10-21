@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-br" th:fragment="content">
+
+<head>>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro de Paciente</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			font-family: 'Roboto', sans-serif;
+			background: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			width: 100%;
+			max-width: 400px;
+			background-color: rgba(255, 255, 255, 0.9);
+			border-radius: 15px;
+			z-index: 2;
+		}
+
+		h1 {
+			color: #007bff;
+			text-align: center;
+			margin-bottom: 20px;
+			font-weight: 700;
+			font-size: 1.8em;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+			position: relative;
+			width: 100%;
+		}
+
+		.form-group input,
+		.form-group select {
+			width: 100%;
+			padding: 12px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			background-color: #f1f1f1;
+			color: #333;
+			transition: 0.3s;
+		}
+
+		.form-group input:focus,
+		.form-group select:focus {
+			outline: none;
+			box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+		}
+
+		.form-group label {
+			position: absolute;
+			left: 15px;
+			top: 12px;
+			color: #aaa;
+			transition: 0.3s;
+			font-size: 16px;
+		}
+
+		.form-group input:focus+label,
+		.form-group input:not(:placeholder-shown)+label,
+		.form-group select:focus+label {
+			top: -10px;
+			left: 10px;
+			font-size: 12px;
+			color: #007bff;
+		}
+
+		.btn {
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 12px;
+			font-size: 16px;
+			margin: 10px 0;
+			width: 100%;
+			transition: background-color 0.3s, transform 0.3s;
+		}
+
+		.btn:hover {
+			background-color: #0056b3;
+			transform: translateY(-2px);
+		}
+
+		.btn-secondary {
+			background-color: #6c757d;
+		}
+
+		.btn-secondary:hover {
+			background-color: #5a6268;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Cadastro de Paciente</h1>
+		<form th:action="@{/criarPaciente}" method="post">
+			<fieldset>
+				<div class="form-group">
+					<input type="text" id="txtNomePaciente" name="nome" placeholder=" " required />
+					<label for="txtNomePaciente">Nome</label>
+				</div>
+				<div class="form-group">
+					<input type="email" id="txtEmailPaciente" name="email" placeholder=" " required />
+					<label for="txtEmailPaciente">E-mail</label>
+				</div>
+				<div class="form-group">
+					<input type="password" id="txtSenhaPaciente" name="senha" placeholder=" " required />
+					<label for="txtSenhaPaciente">Senha</label>
+				</div>
+				<div class="form-group">
+					<input type="text" id="txtCPFPaciente" name="cpf" placeholder=" " required />
+					<label for="txtCPFPaciente">CPF</label>
+				</div>
+				<div class="form-group">
+					<input type="text" id="txtTelefonePaciente" name="telefone" placeholder=" " required />
+					<label for="txtTelefonePaciente">Telefone</label>
+				</div>
+				<div class="form-group">
+					<input type="date" id="txtDataNascimentoPaciente" name="dataNascimento" placeholder=" " required />
+					<label for="txtDataNascimentoPaciente"></label>
+				</div>
+				<div class="form-group">
+					<input type="text" id="txtEnderecoPaciente" name="endereco" placeholder=" " required />
+					<label for="txtEnderecoPaciente">Endereço</label>
+				</div>
+				<div class="form-group">
+					<label for="chkPlanoSaude">Possui Plano de Saúde?</label>
+					<select id="chkPlanoSaude" name="possuiPlanoSaude" required>
+						<option value="" disabled selected></option>
+						<option value="true">Sim</option>
+						<option value="false">Não</option>
+					</select>
+				</div>
+			</fieldset>
+			<button type="submit" class="btn">Cadastrar</button>
+
+		</form>
+	</div>
+</body>
+
+</html>

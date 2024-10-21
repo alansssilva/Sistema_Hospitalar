@@ -1,24 +1,29 @@
 package br.edu.iff.ccc.bsi.SistemaHospitalar.entities;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-public class Administrador extends Usuario implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Comum extends Usuario implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @NotNull
-    private LocalDateTime dataAdmissao;
+	public Comum() {
+	}
 
-    
-    public LocalDateTime getDataAdmissao() {
-        return dataAdmissao;
-    }
+	@NotNull
+	private boolean possuiPlanoSaude;
 
-    public void setDataAdmissao(LocalDateTime dataAdmissao) {
-        this.dataAdmissao = dataAdmissao;
-    }
+	public boolean isPossuiPlanoSaude() {
+		return possuiPlanoSaude;
+	}
+
+	public void setPossuiPlanoSaude(boolean possuiPlanoSaude) {
+		this.possuiPlanoSaude = possuiPlanoSaude;
+	}
 }
+

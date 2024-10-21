@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Sistema Hospitalar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://cdn.pixabay.com/photo/2021/02/19/04/00/doctor-6029164_1280.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .btn {
+            margin-left: 10px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 100px 20px; /* Top and bottom padding */
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .overlay {
+            background: rgba(255, 255, 255, 0.8); /* Opacidade da sobreposição */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-selection {
+            margin-top: 20px;
+        }
+
+        .role-selection .btn {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="btn btn-success" onclick="document.getElementById('loginOptions').style.display='block';">Login</button>
+        <button class="btn btn-primary" onclick="document.getElementById('cadastroOptions').style.display='block';">Cadastro</button>
+    </div>
+
+    <div class="content">
+        <div class="overlay">
+            <h1 th:text="${title}">Sistema Hospitalar</h1>
+            <h2>Bem-vindo ao Sistema Hospitalar</h2>
+            <p>Selecione uma opção para continuar:</p>
+        </div>
+        
+        <div class="role-selection" id="loginOptions" style="display:none;">
+            <h3>Escolha seu tipo de login:</h3>
+            <button class="btn btn-success" onclick="window.location.href='/main/loginPaciente'">Paciente</button>
+            <button class="btn btn-success" onclick="window.location.href='/main/loginMedico'">Médico</button>
+            <button class="btn btn-success" onclick="window.location.href='/main/loginAdministrador'">Administrador</button>
+        </div>
+
+        <div class="role-selection" id="cadastroOptions" style="display:none;">
+            <h3>Escolha seu tipo de cadastro:</h3>
+            <button class="btn btn-primary" onclick="window.location.href='/main/cadastroPaciente'">Paciente</button>
+            <button class="btn btn-primary" onclick="window.location.href='/main/cadastroMedico'">Médico</button>
+            <button class="btn btn-primary" onclick="window.location.href='/main/cadastroAdministrador'">Administrador</button>
+        </div>
+    </div>
+
+    <div th:replace="fragments :: footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

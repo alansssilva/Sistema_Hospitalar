@@ -10,112 +10,111 @@ import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-    @NotNull
-    @Size(min = 3, max = 100)
-    private String nome;
+	@NotNull
+	@Size(min = 3, max = 100)
+	private String nome;
 
-    @NotNull
-    @Email
-    private String email;
+	@NotNull
+	@Email
+	private String email;
 
-    @NotNull
-    @Size(min = 8)
-    private String senha;
+	@NotNull
+	@Size(min = 8)
+	private String senha;
 
-    @NotNull
-    private String tipo;
+	private String tipo;
 
-    @Column(unique = true)
-    @NotNull
-    @Pattern(regexp = "\\d{11}")
-    private String cpf;
+	@Column(unique = true)
+	@NotNull
+	@Pattern(regexp = "\\d{11}")
+	private String cpf;
 
-    @Pattern(regexp = "\\d{10,11}")
-    private String telefone;
+	@NotNull
+	private String telefone;
 
-    private LocalDateTime dataNascimento;
+	@NotNull
+	private String dataNascimento;
 
-    @NotNull
-    private String endereco;
+	@NotNull
+	private String endereco;
 
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public String getTipo() {
-        return tipo;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+	public String getCpf() {
+		return cpf;
+	}
 
-    public String getCpf() {
-        return cpf;
-    }
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+	public String getTelefone() {
+		return telefone;
+	}
 
-    public String getTelefone() {
-        return telefone;
-    }
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
 
-    public LocalDateTime getDataNascimento() {
-        return dataNascimento;
-    }
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
+	public String getEndereco() {
+		return endereco;
+	}
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 }

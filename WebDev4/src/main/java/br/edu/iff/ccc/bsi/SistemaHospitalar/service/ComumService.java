@@ -1,5 +1,6 @@
 package br.edu.iff.ccc.bsi.SistemaHospitalar.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ComumService {
         try {
             return repo.findById(id);
         } catch (Exception e) {
-            throw new RuntimeException("Paciente comum não encontrado");
+            throw new RuntimeException("Paciente comum não encontrado: " + e.getMessage());
         }
     }
 
@@ -26,7 +27,7 @@ public class ComumService {
         try {
             return repo.save(comum);
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao salvar o paciente comum");
+            throw new RuntimeException("Erro ao salvar o paciente comum: " + e.getMessage());
         }
     }
 
@@ -34,7 +35,28 @@ public class ComumService {
         try {
             repo.deleteById(id);
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao deletar o paciente comum");
+            throw new RuntimeException("Erro ao deletar o paciente comum: " + e.getMessage());
         }
     }
+
+    public List<Comum> findAll() {
+        try {
+            return repo.findAll();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar pacientes comuns: " + e.getMessage());
+        }
+    }
+    
+    public Comum findByEmailAndSenha(String email, String senha) {
+        try {
+            return repo.findByEmailAndSenha(email, senha);
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar paciente comum pelo email e senha: " + e.getMessage());
+        }
+    }
+
+	public void removerPaciente(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
